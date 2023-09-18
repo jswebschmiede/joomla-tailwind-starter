@@ -67,6 +67,6 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1, minimum-sca
 $this->setMetaData('content-type', 'text/html', true);
 
 // css
-$wa->registerAndUseStyle('theme-css', $tpath . '/assets/css/style.min.css', [], ['rel' => 'stylesheet']);
-$wa->registerAndUseScript('theme-scripts', $tpath . '/assets/js/scripts.js', [], ['defer' => true]);
+$wa->registerAndUseStyle('theme-css', $tpath . '/assets/css/styles.min.css', [], ['rel' => 'stylesheet']);
+$wa->registerAndUseScript('theme-scripts', $tpath . '/assets/js/main.bundle.js', [], ['defer' => true]);
 $wa->addInlineScript('document.getElementsByTagName("html")[0].className += " js";', [], []);

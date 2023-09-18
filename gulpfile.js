@@ -15,17 +15,25 @@ import nodeResolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 
 const { src, dest, watch, series, parallel } = pkg;
-
-// Cache for Rollup
+const server = browserSync.create();
+const dev_url = "http://jdev4/";
 let cache;
 
-// Local Dev URL
-const dev_url = "http://jdev4/";
+const paths = {
+  css: {
+    src: "./assets/css/tailwind.css",
+    dest: "./assets/css/",
+    watch: "./assets/css/**/*.css",
+  },
+  js: {
+    src: "./assets/js/main.js",
+    dest: "./assets/js/",
+  },
+};
 
 //Load Previews on Browser on dev
 const livePreview = (done) => {
-  console.log("\n\t" + logSymbols.info, "BrowserSync loaded.\n");
-  browserSync.init({
+  server.init({
     proxy: dev_url,
     notify: false,
   });
@@ -35,13 +43,13 @@ const livePreview = (done) => {
 // Triggers Browser reload
 const previewReload = (done) => {
   console.log("\n\t" + logSymbols.info, "Reloading Browser Preview.\n");
-  browserSync.reload({ stream: true, notify: false });
+  server.reload();
   done();
 };
 
 // PostCSS Styles
 const devStyles = () => {
-  return src(["./assets/css/styles.css"])
+  return src([paths.css.src])
     .pipe(
       postcss([
         postcssImportGlob(),
@@ -50,26 +58,10 @@ const devStyles = () => {
         autoprefixer(),
       ]),
     )
-    .pipe(
-      cleanCSS({ debug: true }, (details) => {
-        console.log(
-          "\n\t" + logSymbols.info,
-          `${details.name}: ${details.stats.originalSize}`,
-        );
-        console.log(
-          "\t" + logSymbols.info,
-          `${details.name}: ${details.stats.minifiedSize}\n`,
-        );
-      }),
-    )
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(dest("./assets/css/"))
-    .pipe(
-      browserSync.reload({
-        stream: true,
-        notify: false,
-      }),
-    );
+    .pipe(cleanCSS())
+    .pipe(rename("styles.min.css"))
+    .pipe(dest(paths.css.dest))
+    .pipe(server.stream());
 };
 
 // Rollup Scripts
@@ -77,6 +69,7 @@ const devScripts = async () => {
   const bundle = await rollup({
     input: "./assets/js/main.js",
     plugins: [nodeResolve(), commonjs(), babel({ babelHelpers: "bundled" })],
+    cache: cache,
   });
   cache = bundle.cache;
 
@@ -93,16 +86,14 @@ const devScripts = async () => {
 const watchFiles = () => {
   console.log("\n\t" + logSymbols.info, "Watching files.\n");
   watch(
-    [
-      "./assets/css/**/*.css",
-      "./assets/js/**/*.js",
-      "./**/*.php",
-      "../../modules/**/*.php",
-    ],
+    [paths.css.watch, paths.js.src],
     {
       interval: 1000,
       usePolling: true,
-      ignored: ["./assets/css/styles.min.css", "./assets/js/main.bundle.js"],
+      ignored: [
+        paths.css.dest + "styles.min.css",
+        paths.js.dest + "main.bundle.js",
+      ],
     },
     series(parallel(devStyles, devScripts), previewReload),
   );
