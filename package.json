@@ -1,0 +1,43 @@
+{
+  "name": "joomla-tailwind-starter",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "keywords": [
+    "joomla",
+    "theme",
+    "tailwindcss"
+  ],
+  "scripts": {
+    "dev": "gulp"
+  },
+  "author": "Joerg Schoeneburg <info@joerg-schoeneburg.de>",
+  "homepage": "https://joerg-schoeneburg.de/",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.20",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.15",
+    "babel-core": "^6.26.3",
+    "browser-sync": "^2.29.3",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^9.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-uglify": "^3.0.2",
+    "log-symbols": "^5.1.0",
+    "postcss": "^8.4.29",
+    "postcss-import": "^15.1.0",
+    "postcss-import-ext-glob": "^2.1.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "^3.3.3"
+  }
+}
