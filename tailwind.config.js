@@ -1,15 +1,38 @@
 /** @type {import('tailwindcss').Config} */
-import defaultTheme from "tailwindcss/defaultTheme";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  presets: [
-    // Manage Tailwind Typography's configuration in a separate file.
-    require("./tailwind-typography.config.js"),
-  ],
   content: ["./assets/**/*.{css,js}", "./**/*.php"],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
-      sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      container: {
+        center: true,
+        padding: "1rem",
+      },
+      fontFamily: {
+        sans: ["Inter var", "Inter", ...defaultTheme.fontFamily.sans],
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: false,
+            color: theme("colors.gray.700"),
+            a: {
+              color: theme("colors.blue.500"),
+              "&:hover": {
+                color: theme("colors.blue.700"),
+              },
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [

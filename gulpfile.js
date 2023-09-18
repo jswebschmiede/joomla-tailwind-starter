@@ -54,7 +54,7 @@ const devStyles = () => {
       postcss([
         postcssImportGlob(),
         postcssImport(),
-        tailwindcss(),
+        tailwindcss({ config: "./tailwind.config.js" }),
         autoprefixer(),
       ]),
     )
