@@ -13,6 +13,6 @@ defined('_JEXEC') or die;
 ?>
 
 
-<div class="text-component">
+<div class="prose">
     <?php echo $module->content; ?>
 </div>
