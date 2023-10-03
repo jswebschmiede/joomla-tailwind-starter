@@ -1,7 +1,9 @@
-import CurrentYear from "./components/test";
+import "./components/_1_preloader";
+import "./components/_1_joomla";
+import "./components/_1_totop-btn";
+import "./components/_1_reveal-effects";
 
-window.onload = function () {
-  const currentYear = new CurrentYear();
-  const year = currentYear.getYear();
-  console.log(year);
-};
+// init
+(() => {
+
+})();
