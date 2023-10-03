@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
 ?>
 
 
-<header id="masthead" class="main-header">
+<header data-element="header">
     <div class="container">
         <div>
             <?php if ($templateparams['brand'] == 1) : ?>
-                <div class="navbar-brand">
-                    <a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
+                <div data-element="navbar-brand">
+                    <a data-element="brand-logo" href="<?php echo $this->baseurl; ?>/">
                         <?php echo $logo; ?>
                     </a>
                     <?php if ($templateparams['siteDescription']) : ?>
-                        <div class="site-description"><?php echo htmlspecialchars($templateparams['siteDescription']); ?></div>
+                        <div data-element="site-description"><?php echo htmlspecialchars($templateparams['siteDescription']); ?></div>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
