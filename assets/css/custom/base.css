@@ -12,6 +12,14 @@
  * editor.
 */
 
+html {
+  @apply overflow-x-hidden scroll-smooth scrollbar-thin scrollbar-track-slate-200 scrollbar-thumb-primary scrollbar-thumb-rounded min-h-full;
+}
+
 body {
-  @apply bg-black text-white font-sans;
+  @apply bg-white min-h-full font-sans text-black;
+}
+
+a {
+  @apply transition-colors duration-300 ease-in-out;
 }
