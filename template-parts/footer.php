@@ -13,9 +13,8 @@ defined('_JEXEC') or die;
 
 ?>
 
-
-<footer id="mastfooter" class="main-footer">
-    <div class="container max-width-adaptive-lg">
+<footer data-element="footer">
+    <div class="container">
         <?php if ($this->countModules('footer')) : ?>
             <nav role="navigation">
                 <jdoc:include type="modules" name="footer" style="none" />
