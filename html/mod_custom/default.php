@@ -26,8 +26,8 @@ if ($params->get('backgroundimage')) {
 
 ?>
 
-<div id="<?php echo $modId; ?>" class="mod-custom custom reveal-fx">
-    <div class="text-component">
+<div id="<?php echo $modId; ?>" class="mod-custom reveal-fx--translate-up">
+    <div class="prose lg:prose-lg">
         <?php echo $module->content; ?>
     </div>
 </div>
