@@ -37,15 +37,7 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
 <div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
     <meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? Factory::getApplication()->get('language') : $this->item->language; ?>">
     <?php if ($this->params->get('show_page_heading')) : ?>
-        <div class="page-header flex items-center gap-4 text-2xl lg:text-4xl uppercase font-bold pb-8">
-            <a href="/" class="text-primary" aria-label="zurück zur Startseite">
-                <svg class="lg:h-12 lg:w-12" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left-circle">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 8 8 12 12 16" />
-                    <line x1="16" y1="12" x2="8" y2="12" />
-                    <title>zurück zur Startseite</title>
-                </svg>
-            </a>
+        <div class="page-header text-2xl lg:text-4xl uppercase font-bold pb-8">
             <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
         </div>
     <?php endif;
