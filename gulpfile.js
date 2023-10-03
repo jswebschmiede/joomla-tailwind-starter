@@ -16,7 +16,7 @@ import terser from "@rollup/plugin-terser";
 
 const { src, dest, watch, series, parallel } = pkg;
 const server = browserSync.create();
-const dev_url = "http://jdev4/";
+const dev_url = "http://joomla-nsn/";
 let cache;
 
 const paths = {
@@ -55,7 +55,7 @@ const devStyles = () => {
         postcssImportGlob(),
         postcssImport(),
         tailwindcss({ config: "./tailwind.config.js" }),
-        autoprefixer(),
+        autoprefixer({}),
       ]),
     )
     .pipe(cleanCSS())
@@ -86,7 +86,14 @@ const devScripts = async () => {
 const watchFiles = () => {
   console.log("\n\t" + logSymbols.info, "Watching files.\n");
   watch(
-    [paths.css.watch, paths.js.src],
+    [
+      paths.css.watch,
+      paths.js.src,
+      "./tailwind.config.js",
+      "./assets/js/**/*.js",
+      "./**/*.php",
+      "../../modules/**/*.php",
+    ],
     {
       interval: 1000,
       usePolling: true,
