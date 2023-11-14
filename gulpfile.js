@@ -16,7 +16,7 @@ import terser from "@rollup/plugin-terser";
 
 const { src, dest, watch, series, parallel } = pkg;
 const server = browserSync.create();
-const dev_url = "http://joomla-nsn/";
+const dev_url = "http://your-local/";
 let cache;
 
 const paths = {
