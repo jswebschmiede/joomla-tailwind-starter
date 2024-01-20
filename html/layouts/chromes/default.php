@@ -22,8 +22,8 @@ if ($module->content === null || $module->content === '') {
 
 $moduleTag              = $params->get('module_tag', 'div');
 $moduleAttribs          = [];
-$moduleAttribs['class'] = 'default pt-24 ' . htmlspecialchars($params->get('moduleclass_sfx', ''), ENT_QUOTES, 'UTF-8');
-$moduleId                 = htmlspecialchars($params->get('module_id', ''), ENT_QUOTES, 'UTF-8');
+$moduleAttribs['class'] = 'default pt-12 lg:pt-24 ' . htmlspecialchars($params->get('moduleclass_sfx', ''), ENT_QUOTES, 'UTF-8');
+$moduleId               = htmlspecialchars($params->get('module_id', ''), ENT_QUOTES, 'UTF-8');
 $headerTag              = htmlspecialchars($params->get('header_tag', 'h3'), ENT_QUOTES, 'UTF-8');
 $headerClass            = htmlspecialchars($params->get('header_class', ''), ENT_QUOTES, 'UTF-8');
 $headerAttribs          = [];
@@ -51,10 +51,10 @@ if ($moduleTag !== 'div') {
 $header = '<' . $headerTag . ' ' . ArrayHelper::toString($headerAttribs) . '>' . $module->title . '</' . $headerTag . '>';
 ?>
 <<?php echo $moduleTag; ?> <?php echo ArrayHelper::toString($moduleAttribs); ?>>
-    <div class="container">
-        <?php if ($module->showtitle) : ?>
-            <?php echo $header; ?>
-        <?php endif; ?>
-        <?php echo $module->content; ?>
-    </div>
+
+    <?php if ($module->showtitle) : ?>
+    <?php echo $header; ?>
+    <?php endif; ?>
+    <?php echo $module->content; ?>
+
 </<?php echo $moduleTag; ?>>
