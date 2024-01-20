@@ -16,6 +16,7 @@
 	<files>
 		<folder>assets</folder>
 		<folder>template-parts</folder>
+		<folder>language</folder>
 		<folder>html</folder>
 		<filename>component.php</filename>
 		<filename>error.php</filename>
@@ -32,6 +33,7 @@
 		<position>header</position>
 		<position>main-menu</position>
 		<position>breadcrumb</position>
+		<position>content-top</position>
 		<position>content-1</position>
 		<position>content-2</position>
 		<position>content-3</position>
