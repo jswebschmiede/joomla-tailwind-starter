@@ -127,11 +127,11 @@ module.exports = {
           "border-radius": theme("borderRadius.xs"),
         },
         ".btn-primary": {
-          color: theme("colors.black"),
+          color: theme("colors.white"),
           "background-color": theme("colors.gray.500"),
           "&:hover": {
             "background-color": theme("colors.gray.600"),
-            color: theme("colors.black"),
+            color: theme("colors.white"),
           },
         },
         ".btn-secondary": {
