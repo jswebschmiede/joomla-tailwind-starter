@@ -12,8 +12,9 @@ use Joomla\CMS\Factory;
 
 defined('_JEXEC') or die;
 
-include_once JPATH_THEMES . '/' . $this->template . '/logic.php'; ?>
+require(JPATH_THEMES . '/' . $this->template . '/logic.php');
 
+?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 
