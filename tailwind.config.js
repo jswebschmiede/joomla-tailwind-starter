@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const theme = require("tailwindcss/defaultTheme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
 
@@ -12,6 +11,7 @@ module.exports = {
   ],
   theme: {
     screens: {
+      xxs: "320px",
       xs: "480px",
       sm: "640px",
       md: "768px",
@@ -21,90 +21,65 @@ module.exports = {
       "3xl": "1920px",
     },
     extend: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: "1rem",
-          md: "0",
-        },
-        screens: {
-          sm: "640px",
-          md: "768px",
-          lg: "1024px",
-          xl: "1280px",
-          "2xl": "1440px",
-        },
-      },
       fontFamily: {
-        sans: ["Lato", ...defaultTheme.fontFamily.sans],
+        sans: ["Noto Sans", ...defaultTheme.fontFamily.sans],
+        heading: ["Aero Matics", ...defaultTheme.fontFamily.sans],
       },
-      colors: {
-        primary: {
-          100: "#ceecd8",
-          200: "#9dd9b1",
-          300: "#6dc789",
-          400: "#3cb462",
-          DEFAULT: "#0ba13b",
-          600: "#09812f",
-          700: "#076123",
-          800: "#044018",
-          900: "#02200c",
-        },
-        secondary: {
-          100: "#fff0cc",
-          200: "#ffe199",
-          300: "#ffd166",
-          400: "#ffc233",
-          DEFAULT: "#ffb300",
-          600: "#cc8f00",
-          700: "#996b00",
-          800: "#664800",
-          900: "#332400",
-        },
+      width: {
+        "full-p-1": "calc(100% - 2.5rem)",
+        "full-p-2": "calc(100% - 4rem)",
       },
+      maxWidth: {
+        content: "60rem", // 960px
+        wide: "64rem", // 1024px
+        big: "90rem", // 1440px
+      },
+
       typography: (theme) => ({
         DEFAULT: {
           css: {
             "--tw-prose-headings": theme("colors.black"),
             "--tw-prose-body": theme("colors.black"),
-            "--tw-prose-links": theme("colors.primary.DEFAULT"),
+            "--tw-prose-links": theme("colors.black"),
+            "--tw-prose-bold": "inherit",
             maxWidth: false,
-            letterSpacing: "0.035em",
+            fontSize: theme("fontSize.base")[0],
+
             a: {
               "text-decoration": "none",
+              "text-underline-offset": "0.425rem",
+              "font-weight": 400,
               "&:hover": {
-                color: theme("colors.primary.700"),
+                "text-decoration": "underline",
               },
             },
+
+            "h1, h2, h3, h4, h5, h6": {
+              "font-weight": 700,
+              textTransform: "uppercase",
+              a: {
+                "&:hover": {
+                  "text-decoration": "none",
+                },
+              },
+            },
+
             h1: {
               fontSize: theme("fontSize.3xl")[0],
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
             },
             h2: {
               fontSize: theme("fontSize.2xl")[0],
-              textTransform: "uppercase",
-              letterSpacing: "0.075em",
             },
             h3: {
               fontSize: theme("fontSize.2xl")[0],
-              textTransform: "uppercase",
-              letterSpacing: "0.056em",
-            },
-            h4: {
-              textTransform: "uppercase",
-            },
-            h5: {
-              textTransform: "uppercase",
-            },
-            h6: {
-              textTransform: "uppercase",
             },
           },
         },
 
         lg: {
           css: {
+            fontSize: theme("fontSize.xl")[0],
+
             h1: {
               fontSize: theme("fontSize.5xl")[0],
             },
@@ -119,7 +94,7 @@ module.exports = {
       }),
     },
   },
-  safelist: ["btn", "btn--primary", "btn--secondary", "btn--secondary-alt"],
+  safelist: ["btn", "btn-sm", "btn-primary", "btn-secondary", "btn-outline"],
   plugins: [
     plugin(function ({ addUtilities, theme }) {
       addUtilities({
@@ -130,37 +105,49 @@ module.exports = {
           "box-shadow": "inset 0px 3px 23px rgba(0,0,0,0.25)",
         },
         ".btn": {
+          "background-color": "transparent",
           display: "inline-block",
-          "border-radius": "14px",
-          "padding-left": "1.5rem",
-          "padding-right": "1.5rem",
-          "padding-top": "0.85rem",
-          "padding-bottom": "0.85rem",
-          "text-transform": "uppercase",
+          "border-radius": theme("borderRadius.DEFAULT"),
+          border: "1px solid transparent",
+          padding: "0.525rem 1.25rem",
           "text-align": "center",
-          "line-height": "1",
-          transition: "all 0.2s ease-in-out",
-        },
-        ".btn--primary": {
-          color: theme("colors.white"),
-          "background-color": theme("colors.primary.DEFAULT"),
+          "line-height": "1.5",
+          "vertical-align": "middle",
+          "text-decoration": "none",
+          transition:
+            "color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out",
+          "user-select": "none",
           "&:hover": {
-            "background-color": theme("colors.primary.600"),
+            "text-decoration": "none",
           },
         },
-        ".btn--secondary": {
-          color: theme("colors.primary.DEFAULT"),
-          "background-color": theme("colors.white"),
+        ".btn-sm": {
+          padding: "0.25rem 0.5rem",
+          "font-size": "0.875rem",
+          "border-radius": theme("borderRadius.xs"),
+        },
+        ".btn-primary": {
+          color: theme("colors.black"),
+          "background-color": theme("colors.gray.500"),
           "&:hover": {
-            "background-color": theme("colors.secondary.DEFAULT"),
+            "background-color": theme("colors.gray.600"),
+            color: theme("colors.black"),
+          },
+        },
+        ".btn-secondary": {
+          color: theme("colors.white"),
+          "background-color": theme("colors.gray.700"),
+          "&:hover": {
+            "background-color": theme("colors.gray.800"),
             color: theme("colors.white"),
           },
         },
-        ".btn--secondary-alt": {
-          color: theme("colors.white"),
-          "background-color": theme("colors.secondary.DEFAULT"),
+        ".btn-outline": {
+          color: theme("colors.black"),
+          "border-color": theme("colors.gray.500"),
           "&:hover": {
-            "background-color": theme("colors.secondary.600"),
+            "background-color": theme("colors.gray.600"),
+            "border-color": theme("colors.gray.600"),
             color: theme("colors.white"),
           },
         },
@@ -168,7 +155,6 @@ module.exports = {
     }),
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/container-queries"),
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar")({ nocompatible: true }),
   ],
