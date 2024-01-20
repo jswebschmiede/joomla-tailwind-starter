@@ -68,10 +68,10 @@
 					<option value="1">JYES</option>
 				</field>
 
-				<field name="instagram" type="url" default="http://www.example.com" label="Instagram URL" description="" size="10" showon="social:1" />
-				<field name="facebook" type="url" default="http://www.example.com" label="Facebook URL" description="" size="10" showon="social:1" />
-				<field name="twitter" type="url" default="http://www.example.com" label="Twitter URL" description="" size="10" showon="social:1" />
-				<field name="youtube" type="url" default="http://www.example.com" label="Youtube URL" description="" size="10" showon="social:1" />
+				<field name="instagram" type="url" default="" label="Instagram URL" description="" size="10" showon="social:1" />
+				<field name="facebook" type="url" default="" label="Facebook URL" description="" size="10" showon="social:1" />
+				<field name="twitter" type="url" default="" label="Twitter URL" description="" size="10" showon="social:1" />
+				<field name="youtube" type="url" default="" label="Youtube URL" description="" size="10" showon="social:1" />
 
 				<field name="pagePreloader" type="radio" label="TPL_JCS_PRELOADER_LABEL" layout="joomla.form.field.radio.switcher" default="0" filter="integer">
 					<option value="0">JNO</option>
