@@ -1,9 +1,7 @@
-import "./components/_1_preloader";
-import "./components/_1_joomla";
-import "./components/_1_totop-btn";
-import "./components/_1_reveal-effects";
+import "./components/preloader";
+import "./components/joomla";
+import "./components/totop-btn";
+import "./components/reveal-effects";
 
 // init
-(() => {
-
-})();
+(() => {})();
