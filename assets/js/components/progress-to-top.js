@@ -1,19 +1,16 @@
-(function () {
+(() => {
   class ProgressToTop {
     constructor(element) {
       this.element = element;
       this.progressPath = this.element.querySelector(".svg-content path");
       this.totalLength = this.progressPath.getTotalLength();
       this.setupProgress();
-      this.handleScroll();
-      this.updateProgressWrap();
-      this.updateProgress();
       this.init();
     }
 
     init = () => {
       this.setupProgress();
-      this.handleScroll();
+      this.setupEventListeners();
     };
 
     setupProgress = () => {
@@ -24,7 +21,11 @@
       this.progressPath.style.transition = "stroke-dashoffset 10ms linear";
 
       this.updateProgress();
-      window.addEventListener("scroll", this.updateProgress);
+    };
+
+    setupEventListeners = () => {
+      window.addEventListener("scroll", this.handleScroll);
+      this.element.addEventListener("click", this.handleScrollToTop);
     };
 
     updateProgress = () => {
@@ -37,34 +38,30 @@
         document.body.offsetHeight,
         document.documentElement.offsetHeight,
         document.body.clientHeight,
-        document.documentElement.clientHeight
+        document.documentElement.clientHeight,
       );
       const offset =
         this.totalLength -
         (scrollTop * this.totalLength) / (documentHeight - windowHeight);
       this.progressPath.style.strokeDashoffset = offset.toString();
+      this.updateProgressWrap(scrollTop);
     };
 
-    updateProgressWrap = () => {
-      if (window.scrollY > 50) {
-        this.element.classList.add("is-shown");
-      } else {
-        this.element.classList.remove("is-shown");
-      }
+    updateProgressWrap = (scrollTop) => {
+      this.element.classList.toggle("is-shown", scrollTop > 50);
     };
 
     handleScroll = () => {
-      this.updateProgressWrap();
-      window.addEventListener("scroll", this.updateProgressWrap);
+      this.updateProgress();
+    };
 
-      this.element.addEventListener("click", function (event) {
-        event.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-        return false;
+    handleScrollToTop = (event) => {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
       });
+      return false;
     };
   }
 
