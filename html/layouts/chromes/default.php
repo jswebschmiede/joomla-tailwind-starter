@@ -53,7 +53,7 @@ $header = '<' . $headerTag . ' ' . ArrayHelper::toString($headerAttribs) . '>' .
 <<?php echo $moduleTag; ?> <?php echo ArrayHelper::toString($moduleAttribs); ?>>
 
     <?php if ($module->showtitle) : ?>
-    <?php echo $header; ?>
+        <?php echo $header; ?>
     <?php endif; ?>
     <?php echo $module->content; ?>
 

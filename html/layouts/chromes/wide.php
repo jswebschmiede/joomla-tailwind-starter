@@ -22,7 +22,7 @@ if ($module->content === null || $module->content === '') {
 
 $moduleTag              = $params->get('module_tag', 'div');
 $moduleAttribs          = [];
-$moduleAttribs['class'] = 'default pt-12 lg:pt-24 wide max-w-wide mx-auto w-p-1 lg:w-p-2 ' . htmlspecialchars($params->get('moduleclass_sfx', ''), ENT_QUOTES, 'UTF-8');
+$moduleAttribs['class'] = 'default wide pt-12 lg:pt-24 max-w-wide mx-auto w-full-p-1 lg:w-full-p-2 ' . htmlspecialchars($params->get('moduleclass_sfx', ''), ENT_QUOTES, 'UTF-8');
 $moduleId               = htmlspecialchars($params->get('module_id', ''), ENT_QUOTES, 'UTF-8');
 $headerTag              = htmlspecialchars($params->get('header_tag', 'h3'), ENT_QUOTES, 'UTF-8');
 $headerClass            = htmlspecialchars($params->get('header_class', ''), ENT_QUOTES, 'UTF-8');
