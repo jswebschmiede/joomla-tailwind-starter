@@ -16,9 +16,6 @@ Usage: codyhouse.co/license
   }
 }
 
-.f-header {
-  @apply w-full h-[--f-header-height] z-[3];
-}
 .f-header::before {
   /* used in JS to detect menu style */
   @apply content-["mobile"] hidden;
@@ -35,10 +32,6 @@ Usage: codyhouse.co/license
 
 .f-header__logo {
   @apply block w-[--f-header-logo-width] shrink-0 no-underline;
-}
-.f-header__logo svg,
-.f-header__logo img {
-  @apply block;
 }
 
 .f-header__nav-control {
@@ -119,6 +112,23 @@ Usage: codyhouse.co/license
 }
 .f-header__dropdown-control[aria-expanded="true"] + .f-header__dropdown {
   @apply block;
+}
+
+/* Sticky Header */
+.f-header--sticky {
+  @apply transition-all;
+}
+.f-header--sticky.is-sticky {
+  @apply fixed shadow-md;
+}
+.f-header--sticky.is-sticky img.logo {
+  @apply h-[80px];
+}
+.f-header--sticky.slide-in {
+  @apply top-[--header-height];
+}
+.f-header--sticky.slide-out {
+  @apply top-0;
 }
 
 /* Desktop */
