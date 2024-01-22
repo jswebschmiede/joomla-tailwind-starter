@@ -205,7 +205,7 @@ Usage: codyhouse.co/license
     @apply block;
     /* reset style */
   }
-  .f-header__item:hover .f-header__dropdown,
+  .f-header--open-submenu-hover .f-header__item:hover .f-header__dropdown,
   .f-header__dropdown-control[aria-expanded="true"] + .f-header__dropdown {
     @apply pointer-events-auto visible opacity-100 [transition:visibility_0.2s_0s,opacity_0.2s_0s];
   }
