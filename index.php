@@ -57,7 +57,7 @@ require(JPATH_THEMES . '/' . $this->template . '/logic.php');
         <?php endif; ?>
 
         <div class="w-full-p-1 lg:w-full-p-2 mx-auto max-w-wide pt-12 lg:pt-24 reveal-fx reveal-fx--translate-up">
-            <div class="prose lg:prose-lg">
+            <div class="prose sm:prose-md lg:prose-lg">
                 <jdoc:include type="component" />
             </div>
         </div>

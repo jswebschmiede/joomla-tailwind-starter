@@ -49,9 +49,9 @@ $this->setHtml5(true);
 if ($templateparams['logoFile']) {
     $logo = '<img src="' . Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $templateparams['logoFile'])->url . '" alt="' . $sitename . '">';
 } elseif ($templateparams['siteTitle']) {
-    $logo = '<span title="' . $sitename . '">' . htmlspecialchars($templateparams['siteTitle'], ENT_COMPAT, 'UTF-8') . '</span>';
+    $logo = '<span class="font-bold text-2xl" title="' . $sitename . '">' . htmlspecialchars($templateparams['siteTitle'], ENT_COMPAT, 'UTF-8') . '</span>';
 } else {
-    $logo = '<span title="' . $sitename . '">' . $sitename . '</span>';
+    $logo = '<span class="font-bold text-2xl" title="' . $sitename . '">' . $sitename . '</span>';
 }
 
 // Browsers support SVG favicons
