@@ -1,0 +1,15 @@
+.visually-hidden {
+  @apply sr-only;
+}
+
+.com-finder__advanced.collapse {
+  @apply visible;
+}
+
+.com-finder__advanced.collapse:not(.show) {
+  @apply hidden;
+}
+
+.com-finder__advanced.collapsing {
+  @apply h-0 transition-[height] duration-300 overflow-hidden;
+}
