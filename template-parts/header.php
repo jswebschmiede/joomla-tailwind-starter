@@ -12,22 +12,34 @@ defined('_JEXEC') or die;
 ?>
 
 
-<header data-element="header">
-    <div class="w-full-p-1 lg:w-full-p-2 max-w-big mx-auto">
-        <?php if ($templateparams['brand'] == 1) : ?>
-            <div data-element="navbar-brand">
-                <a data-element="brand-logo" href="<?php echo $this->baseurl; ?>/">
-                    <?php echo $logo; ?>
+<header class="f-header relative js-f-header" data-element="header">
+    <div class="f-header__mobile-content w-full-p-1 lg:w-full-p-2 mx-auto max-w-wide">
+        <a href="<?php echo $this->baseurl; ?>/" class="f-header__logo">
+            <?php if ($templateparams['brand'] == 1) : ?>
+                <?php echo $logo; ?>
+            <?php endif; ?>
+        </a>
+
+        <button class="anim-menu-btn js-anim-menu-btn f-header__nav-control js-tab-focus" aria-label="Toggle menu">
+            <i class="anim-menu-btn__icon anim-menu-btn__icon--close" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <div class="f-header__nav" role="navigation">
+        <div class="f-header__nav-grid lg:justify-between w-full-p-1 lg:w-full-p-2 mx-auto max-w-wide">
+            <div class="f-header__nav-logo-wrapper">
+                <a href="<?php echo $this->baseurl; ?>/" class="f-header__logo">
+                    <?php if ($templateparams['brand'] == 1) : ?>
+                        <?php echo $logo; ?>
+                    <?php endif; ?>
                 </a>
-                <?php if ($templateparams['siteDescription']) : ?>
-                    <div data-element="site-description"><?php echo htmlspecialchars($templateparams['siteDescription']); ?></div>
-                <?php endif; ?>
             </div>
-        <?php endif; ?>
 
-
-        <?php if ($this->countModules('main-menu')) : ?>
-            <jdoc:include type="modules" name="main-menu" style="none" />
-        <?php endif ?>
+            <ul class="f-header__list">
+                <?php if ($this->countModules('main-menu', true)) : ?>
+                    <jdoc:include type="modules" name="main-menu" style="none" />
+                <?php endif ?>
+            </ul>
+        </div>
     </div>
 </header>
