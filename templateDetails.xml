@@ -60,10 +60,7 @@
 				</field>
 
 				<field name="logoFile" type="media" default="" label="TPL_JCS_LOGO_LABEL" showon="brand:1" />
-
 				<field name="siteTitle" type="text" default="" label="TPL_JCS_TITLE" filter="string" showon="brand:1" />
-
-				<field name="siteDescription" type="text" default="" label="TPL_JCS_TAGLINE_LABEL" description="TPL_JCS_TAGLINE_DESC" filter="string" showon="brand:1" />
 
 				<field name="social" type="radio" label="TPL_JCS_SOCIAL_LABEL" default="1" layout="joomla.form.field.radio.switcher" filter="boolean">
 					<option value="0">JNO</option>
