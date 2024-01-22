@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  @apply bg-white min-h-full font-sans text-black text-base lg:text-lg;
+  @apply bg-white min-h-full font-sans text-black text-base lg:text-lg antialiased;
 }
 
 a {
