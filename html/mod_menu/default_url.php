@@ -16,9 +16,9 @@ use Joomla\CMS\HTML\HTMLHelper;
 $attributes = [];
 
 if ($item->level > 1) {
-    $attributes['class'] = 'f-header__dropdown-link text-dark-500 block relative ';
+    $attributes['class'] = 'f-header__dropdown-link block relative ';
 } else {
-    $attributes['class'] = 'f-header__link text-dark-500 ';
+    $attributes['class'] = 'f-header__link ';
 }
 
 if ($item->anchor_title) {

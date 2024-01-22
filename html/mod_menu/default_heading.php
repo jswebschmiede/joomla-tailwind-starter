@@ -41,4 +41,4 @@ if ($item->menu_icon) {
 }
 
 ?>
-<span class="mod-menu__heading nav-header f-header__link text-dark-500 <?php echo $anchor_css; ?>" <?php echo $title; ?>><?php echo $linktype; ?></span>
+<span class="mod-menu__heading nav-header <?php echo $anchor_css; ?>" <?php echo $title; ?>><?php echo $linktype; ?></span>
