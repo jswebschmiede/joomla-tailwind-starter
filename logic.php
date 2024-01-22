@@ -51,7 +51,7 @@ if ($templateparams['logoFile']) {
 } elseif ($templateparams['siteTitle']) {
     $logo = '<span title="' . $sitename . '">' . htmlspecialchars($templateparams['siteTitle'], ENT_COMPAT, 'UTF-8') . '</span>';
 } else {
-    $logo = HTMLHelper::_('image', 'logo.svg', $sitename, ['class' => 'logo inline-block'], false, 0);
+    $logo = '<span title="' . $sitename . '">' . $sitename . '</span>';
 }
 
 // Browsers support SVG favicons
