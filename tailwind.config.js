@@ -91,6 +91,21 @@ module.exports = {
             },
           },
         },
+        md: {
+          css: {
+            fontSize: theme("fontSize.lg")[0],
+
+            h1: {
+              fontSize: theme("fontSize.4xl")[0],
+            },
+            h2: {
+              fontSize: theme("fontSize.3xl")[0],
+            },
+            h3: {
+              fontSize: theme("fontSize.2xl")[0],
+            },
+          },
+        },
       }),
     },
   },
