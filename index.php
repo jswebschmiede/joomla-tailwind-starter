@@ -9,6 +9,7 @@
  */
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die;
 
@@ -34,7 +35,7 @@ require(JPATH_THEMES . '/' . $this->template . '/logic.php');
                     . ($this->direction == 'rtl' ? ' rtl' : '');
                 ?>">
     <?php if ($templateparams["pagePreloader"] == 1) : ?>
-        <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/preloader.php') ?>
+        <?php echo LayoutHelper::render('joomla.ui.preloader'); ?>
     <?php endif; ?>
 
     <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/header.php') ?>
@@ -56,7 +57,7 @@ require(JPATH_THEMES . '/' . $this->template . '/logic.php');
             </div>
         <?php endif; ?>
 
-        <div class="w-full-p-1 lg:w-full-p-2 mx-auto max-w-wide pt-12 lg:pt-24 reveal-fx reveal-fx--translate-up">
+        <div class="w-full-p-1 lg:w-full-p-2 mx-auto max-w-wide pt-12 lg:pt-24">
             <div class="prose sm:prose-md lg:prose-lg">
                 <jdoc:include type="component" />
             </div>
@@ -112,7 +113,7 @@ require(JPATH_THEMES . '/' . $this->template . '/logic.php');
     <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/footer.php') ?>
 
     <?php if ($templateparams["backTop"] == 1) : ?>
-        <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/backtop.php') ?>
+        <?php echo LayoutHelper::render('joomla.ui.backtop'); ?>
     <?php endif; ?>
 
     <jdoc:include type="modules" name="debug" />
