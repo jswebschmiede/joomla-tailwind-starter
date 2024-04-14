@@ -20,6 +20,17 @@ module.exports = {
       "2xl": "1440px",
       "3xl": "1920px",
     },
+    fontSize: {
+      sm: "0.875rem",
+      base: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.5625rem",
+      "3xl": "1.75rem",
+      "4xl": "2.5rem",
+      "5xl": "3.25rem",
+      "6xl": "4.25rem",
+    },
     extend: {
       fontFamily: {
         sans: ["Noto Sans", ...defaultTheme.fontFamily.sans],
@@ -68,7 +79,7 @@ module.exports = {
             "--tw-prose-links": theme("colors.black"),
             "--tw-prose-bold": "inherit",
             maxWidth: false,
-            fontSize: theme("fontSize.base")[0],
+            fontSize: theme("fontSize.base"),
 
             a: {
               "text-decoration": "none",
@@ -90,50 +101,50 @@ module.exports = {
             },
 
             h1: {
-              fontSize: theme("fontSize.3xl")[0],
+              fontSize: theme("fontSize.3xl"),
             },
             h2: {
-              fontSize: theme("fontSize.2xl")[0],
+              fontSize: theme("fontSize.2xl"),
             },
             h3: {
-              fontSize: theme("fontSize.2xl")[0],
+              fontSize: theme("fontSize.2xl"),
             },
           },
         },
         md: {
           css: {
-            fontSize: theme("fontSize.lg")[0],
+            fontSize: theme("fontSize.lg"),
 
             h1: {
-              fontSize: theme("fontSize.4xl")[0],
+              fontSize: theme("fontSize.4xl"),
             },
             h2: {
-              fontSize: theme("fontSize.3xl")[0],
+              fontSize: theme("fontSize.3xl"),
             },
             h3: {
-              fontSize: theme("fontSize.2xl")[0],
+              fontSize: theme("fontSize.2xl"),
             },
           },
         },
         lg: {
           css: {
-            fontSize: theme("fontSize.xl")[0],
+            fontSize: theme("fontSize.xl"),
 
             h1: {
-              fontSize: theme("fontSize.5xl")[0],
+              fontSize: theme("fontSize.5xl"),
             },
             h2: {
-              fontSize: theme("fontSize.4xl")[0],
+              fontSize: theme("fontSize.4xl"),
             },
             h3: {
-              fontSize: theme("fontSize.3xl")[0],
+              fontSize: theme("fontSize.3xl"),
             },
           },
         },
       }),
     },
   },
-  safelist: ["btn", "btn-sm", "btn-primary", "btn-secondary", "btn-outline"],
+  safelist: ["btn", { pattern: /btn-(primary|secondary|outline)/ }],
   plugins: [
     plugin(function ({ addUtilities, theme }) {
       addUtilities({
@@ -145,25 +156,48 @@ module.exports = {
         },
         ".btn": {
           "background-color": "transparent",
-          display: "inline-block",
-          "border-radius": theme("borderRadius.DEFAULT"),
+          display: "inline-flex",
           border: "1px solid transparent",
-          padding: "0.525rem 1.25rem",
+          "padding-left": "1rem",
+          "padding-right": "1rem",
+          height: "3rem",
+          "max-height": "3rem",
           "text-align": "center",
-          "line-height": "1.5",
+          "line-height": "1em",
           "vertical-align": "middle",
           "text-decoration": "none",
-          transition:
-            "color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out",
+          "align-items": "center",
+          "justify-content": "center",
+          "flex-shrink": "0",
+          "flex-wrap": "wrap",
+          "font-size": theme("fontSize.base"),
+          cursor: "pointer",
+          "border-radius": "0.5rem",
+          "transition-duration": "0.25s",
+          "transition-timing-function": "cubic-bezier(0,0,.2,1)",
+          "transition-property":
+            "color,background-color,border-color,opacity,box-shadow,transform",
           "user-select": "none",
+          "will-change":
+            "color,background-color,border-color,opacity,box-shadow,transform",
+          "box-shadow":
+            "var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000), 0 1px 2px 0 rgb(0 0 0 / .05)",
+          animation: "button-pop 0.25s ease-out",
           "&:hover": {
             "text-decoration": "none",
+          },
+          "&:active:hover": {
+            animation: "button-pop 0s ease-out",
+            transform: "scale(.97)",
+          },
+          "&:active:focus": {
+            animation: "button-pop 0s ease-out",
+            transform: "scale(.97)",
           },
         },
         ".btn-sm": {
           padding: "0.25rem 0.5rem",
           "font-size": "0.875rem",
-          "border-radius": theme("borderRadius.xs"),
         },
         ".btn-primary": {
           color: theme("colors.white"),
