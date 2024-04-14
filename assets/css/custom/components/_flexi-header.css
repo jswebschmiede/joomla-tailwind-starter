@@ -116,23 +116,6 @@ Usage: codyhouse.co/license
   @apply block;
 }
 
-/* Sticky Header */
-.f-header--sticky {
-  @apply transition-all;
-}
-.f-header--sticky.is-sticky {
-  @apply fixed shadow-md;
-}
-.f-header--sticky.is-sticky img.logo {
-  @apply h-[80px];
-}
-.f-header--sticky.slide-in {
-  @apply top-[--header-height];
-}
-.f-header--sticky.slide-out {
-  @apply top-0;
-}
-
 /* Desktop */
 @media (min-width: theme("screens.lg")) {
   .f-header::before {

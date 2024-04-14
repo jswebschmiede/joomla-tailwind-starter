@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 ?>
 
 
-<header class="f-header bg-white relative js-f-header w-full h-[--f-header-height] z-[3] <?php echo ((bool)$templateparams['stickyHeader']) ?  'f-header--sticky' : null; ?>" data-element="header">
+<header class="f-header bg-white absolute top-0 left-0 js-f-header w-full h-[--f-header-height] z-[3] <?php echo ((bool)$templateparams['stickyHeader']) ?  'f-header--sticky' : null; ?>" data-element="header">
     <div class="f-header__mobile-content w-full-p-1 lg:w-full-p-2 mx-auto max-w-big">
         <a href="<?php echo $this->baseurl; ?>/" class="f-header__logo">
             <?php if ((bool)$templateparams['brand']) : ?>
