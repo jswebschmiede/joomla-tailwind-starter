@@ -34,6 +34,31 @@ module.exports = {
         wide: "64rem", // 1024px
         big: "90rem", // 1440px
       },
+      animation: {
+        "button-pop": "button-pop 0s ease-out",
+        "slide-down": "slide-down 0.35s ease-out",
+      },
+      keyframes: {
+        "button-pop": {
+          "0%": {
+            transform: "scale(.98)",
+          },
+          "40%": {
+            transform: "scale(1.02)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+        "slide-down": {
+          from: {
+            transform: "translateY(-100%)",
+          },
+          to: {
+            transform: "translateY(0)",
+          },
+        },
+      },
 
       typography: (theme) => ({
         DEFAULT: {
@@ -75,22 +100,6 @@ module.exports = {
             },
           },
         },
-
-        lg: {
-          css: {
-            fontSize: theme("fontSize.xl")[0],
-
-            h1: {
-              fontSize: theme("fontSize.5xl")[0],
-            },
-            h2: {
-              fontSize: theme("fontSize.4xl")[0],
-            },
-            h3: {
-              fontSize: theme("fontSize.3xl")[0],
-            },
-          },
-        },
         md: {
           css: {
             fontSize: theme("fontSize.lg")[0],
@@ -103,6 +112,21 @@ module.exports = {
             },
             h3: {
               fontSize: theme("fontSize.2xl")[0],
+            },
+          },
+        },
+        lg: {
+          css: {
+            fontSize: theme("fontSize.xl")[0],
+
+            h1: {
+              fontSize: theme("fontSize.5xl")[0],
+            },
+            h2: {
+              fontSize: theme("fontSize.4xl")[0],
+            },
+            h3: {
+              fontSize: theme("fontSize.3xl")[0],
             },
           },
         },
