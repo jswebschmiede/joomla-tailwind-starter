@@ -13,3 +13,31 @@
 .com-finder__advanced.collapsing {
   @apply h-0 transition-[height] duration-300 overflow-hidden;
 }
+
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+    .valid-feedback
+  ):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: -4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.mod-finder__search.input-group {
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.mod-finder__search.input-group .awesomplete input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.readmore .icon-chevron-right,
+.mod-finder__search.input-group button .icon-search {
+  margin-inline-end: 0.2em;
+}
+
+.awesomplete > input {
+  @apply max-w-52 lg:max-w-none;
+}
