@@ -79,7 +79,7 @@ Usage: codyhouse.co/license
 .f-header__btn,
 .f-header__link,
 .f-header__form-control {
-  @apply hover:text-indigo-700;
+  @apply hover:text-primary-500;
 }
 
 .f-header__link,
@@ -91,7 +91,7 @@ Usage: codyhouse.co/license
 .f-header__link[aria-current="page"],
 .f-header__dropdown-control[aria-current="page"],
 .f-header__dropdown-link[aria-current="page"] {
-  @apply text-indigo-700;
+  @apply text-primary-500;
 }
 
 .f-header__btn,

@@ -34,8 +34,22 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Noto Sans", ...defaultTheme.fontFamily.sans],
-        heading: ["Aero Matics", ...defaultTheme.fontFamily.sans],
       },
+
+      colors: {
+        primary: {
+          100: "#cfd4dd",
+          200: "#a0a9bb",
+          300: "#707e99",
+          400: "#415377",
+          500: "#112855",
+          600: "#0e2044",
+          700: "#0a1833",
+          800: "#071022",
+          900: "#030811",
+        },
+      },
+
       width: {
         "full-p-1": "calc(100% - 2.5rem)",
         "full-p-2": "calc(100% - 4rem)",
@@ -74,9 +88,9 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            "--tw-prose-headings": theme("colors.black"),
+            "--tw-prose-headings": theme("colors.primary.500"),
             "--tw-prose-body": theme("colors.black"),
-            "--tw-prose-links": theme("colors.black"),
+            "--tw-prose-links": theme("colors.primary.600"),
             "--tw-prose-bold": "inherit",
             maxWidth: false,
             fontSize: theme("fontSize.base"),
@@ -92,7 +106,7 @@ module.exports = {
 
             "h1, h2, h3, h4, h5, h6": {
               "font-weight": 700,
-              textTransform: "uppercase",
+              textTransform: "normal",
               a: {
                 "&:hover": {
                   "text-decoration": "none",
@@ -148,14 +162,14 @@ module.exports = {
           height: "2.875rem",
           "max-height": "2.875rem",
           "text-align": "center",
-          "line-height": "1em",
+          "line-height": "1.5",
           "vertical-align": "middle",
           "text-decoration": "none",
           "align-items": "center",
           "justify-content": "center",
           "flex-shrink": "0",
           "flex-wrap": "wrap",
-          "font-size": theme("fontSize.base"),
+          "font-size": "inherit",
           cursor: "pointer",
           "border-radius": "0.5rem",
           "transition-duration": "0.25s",
@@ -186,32 +200,34 @@ module.exports = {
         },
         ".btn-primary": {
           color: theme("colors.white"),
-          "background-color": theme("colors.gray.500"),
+          "background-color": theme("colors.primary.500"),
           "&:hover": {
-            "background-color": theme("colors.gray.600"),
+            "background-color": theme("colors.primary.600"),
             color: theme("colors.white"),
           },
         },
         ".btn-secondary": {
           color: theme("colors.white"),
-          "background-color": theme("colors.gray.700"),
+          "background-color": theme("colors.primary.700"),
           "&:hover": {
-            "background-color": theme("colors.gray.800"),
+            "background-color": theme("colors.primary.800"),
             color: theme("colors.white"),
           },
         },
         ".btn-outline": {
           color: theme("colors.black"),
-          "border-color": theme("colors.gray.500"),
+          "border-color": theme("colors.primary.500"),
           "&:hover": {
-            "background-color": theme("colors.gray.600"),
-            "border-color": theme("colors.gray.600"),
+            "background-color": theme("colors.primary.600"),
+            "border-color": theme("colors.primary.600"),
             color: theme("colors.white"),
           },
         },
       });
     }),
-    require("@tailwindcss/forms"),
+    require("@tailwindcss/forms", {
+      strategy: "base", // only generate global styles
+    }),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar")({ nocompatible: true }),
