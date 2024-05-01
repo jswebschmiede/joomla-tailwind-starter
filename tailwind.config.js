@@ -111,7 +111,7 @@ module.exports = {
             },
           },
         },
-        md: {
+        lg: {
           css: {
             fontSize: theme("fontSize.lg"),
 
@@ -123,21 +123,6 @@ module.exports = {
             },
             h3: {
               fontSize: theme("fontSize.2xl"),
-            },
-          },
-        },
-        lg: {
-          css: {
-            fontSize: theme("fontSize.xl"),
-
-            h1: {
-              fontSize: theme("fontSize.5xl"),
-            },
-            h2: {
-              fontSize: theme("fontSize.4xl"),
-            },
-            h3: {
-              fontSize: theme("fontSize.3xl"),
             },
           },
         },

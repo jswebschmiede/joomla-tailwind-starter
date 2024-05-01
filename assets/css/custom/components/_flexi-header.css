@@ -10,9 +10,10 @@ Usage: codyhouse.co/license
   --f-header-height: 50px;
   --f-header-logo-width: 140px;
 }
-@media (min-width: theme("screens.lg")) {
+@screen lg {
   :root {
     --f-header-height: 90px;
+    --f-header-logo-width: 160px;
   }
 }
 
@@ -78,7 +79,7 @@ Usage: codyhouse.co/license
 .f-header__btn,
 .f-header__link,
 .f-header__form-control {
-  @apply text-lg lg:text-xl;
+  @apply hover:text-indigo-700;
 }
 
 .f-header__link,
@@ -86,11 +87,9 @@ Usage: codyhouse.co/license
 .f-header__dropdown-link {
   @apply flex items-center no-underline text-gray-700 py-2 lg:py-3 px-0;
 }
-.f-header__link:hover,
+
 .f-header__link[aria-current="page"],
-.f-header__dropdown-control:hover,
 .f-header__dropdown-control[aria-current="page"],
-.f-header__dropdown-link:hover,
 .f-header__dropdown-link[aria-current="page"] {
   @apply text-indigo-700;
 }
@@ -117,7 +116,7 @@ Usage: codyhouse.co/license
 }
 
 /* Desktop */
-@media (min-width: theme("screens.lg")) {
+@screen lg {
   .f-header::before {
     @apply content-["desktop"];
   }
@@ -155,14 +154,6 @@ Usage: codyhouse.co/license
   .f-header__dropdown-icon {
     @apply block mt-0 mr-0 mb-0 ml-0.5 lg:ml-1;
   }
-
-  /* .f-header__link,
-  .f-header__dropdown-control,
-  .f-header__dropdown-link,
-  .f-header__btn,
-  .f-header__form-control {
-    @apply text-lg;
-  } */
 
   .f-header__link--icon span {
     @apply hidden;

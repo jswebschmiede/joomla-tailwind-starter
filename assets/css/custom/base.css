@@ -12,16 +12,12 @@
  * editor.
 */
 
-* {
-  @apply min-w-0;
-}
-
 html {
   @apply overflow-x-hidden scroll-smooth scrollbar-thin scrollbar-track-slate-200 scrollbar-thumb-slate-500 scrollbar-thumb-rounded min-h-full;
 }
 
 body {
-  @apply bg-white min-h-full font-sans text-black text-base sm:text-lg lg:text-xl antialiased break-words;
+  @apply bg-white min-h-full font-sans text-black text-base xl:text-lg antialiased break-words;
 }
 
 a {

@@ -1,5 +1,5 @@
 .convertforms {
-  @apply prose prose-sm lg:prose-lg xl:prose-xl;
+  @apply prose lg:prose-lg;
 }
 
 .convertforms .cf-fields {
