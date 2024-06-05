@@ -143,7 +143,7 @@ module.exports = {
       }),
     },
   },
-  safelist: ["btn", { pattern: /btn-(primary|secondary|outline)/ }],
+  safelist: ["btn", { pattern: /btn-(primary|secondary|outline)/ }, "mb-3"],
   plugins: [
     plugin(function ({ addUtilities, theme }) {
       addUtilities({
@@ -159,8 +159,8 @@ module.exports = {
           border: "1px solid transparent",
           "padding-left": "1rem",
           "padding-right": "1rem",
-          height: "2.875rem",
-          "max-height": "2.875rem",
+          height: "2.882rem",
+          "max-height": "2.882rem",
           "text-align": "center",
           "line-height": "1.5",
           "vertical-align": "middle",

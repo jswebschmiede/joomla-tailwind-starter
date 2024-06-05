@@ -13,7 +13,7 @@
 */
 
 html {
-  @apply overflow-x-hidden scroll-smooth scrollbar-thin scrollbar-track-slate-200 scrollbar-thumb-slate-500 scrollbar-thumb-rounded min-h-full;
+  @apply overflow-x-clip scroll-smooth scrollbar-thin scrollbar-track-slate-200 scrollbar-thumb-slate-500 scrollbar-thumb-rounded min-h-full;
 }
 
 body {

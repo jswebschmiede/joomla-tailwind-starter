@@ -15,8 +15,8 @@
   * registered by plugins, then adds custom component classes.
   */
 @import "tailwindcss/components";
+@import-glob "./custom/joomla/**/!(components).css";
 @import-glob "./custom/components/**/!(components).css";
-@import "./custom/components/components.css";
 
 /**
   * This injects Tailwind's utility classes and any utility classes registered

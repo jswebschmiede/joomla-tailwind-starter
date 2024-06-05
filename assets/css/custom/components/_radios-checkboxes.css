@@ -26,6 +26,8 @@ Usage: codyhouse.co/license
 }
 
 /* hide native buttons */
+[type="radio"],
+[type="checkbox"],
 .cf-input[type="radio"],
 .cf-input[type="checkbox"] {
   position: absolute;
@@ -41,6 +43,8 @@ Usage: codyhouse.co/license
 }
 
 /* label */
+[type="radio"] + label,
+[type="checkbox"] + label,
 .cf-input[type="radio"] + label,
 .cf-input[type="checkbox"] + label {
   display: inline-block;
@@ -51,6 +55,8 @@ Usage: codyhouse.co/license
 }
 
 /* custom inputs - basic style */
+[type="radio"] + label::before,
+[type="checkbox"] + label::before,
 .cf-input[type="radio"] + label::before,
 .cf-input[type="checkbox"] + label::before {
   content: "";
@@ -67,7 +73,7 @@ Usage: codyhouse.co/license
   height: var(--checkbox-radio-size);
   @apply bg-white;
   border-width: var(--checkbox-radio-border-width);
-  @apply border-gray-400/[.65];
+  @apply border-primary-400/[.65];
   border-style: solid;
   @apply shadow-sm;
   background-repeat: no-repeat;
@@ -86,27 +92,33 @@ Usage: codyhouse.co/license
 }
 
 /* :hover */
+[type="radio"]:not(:checked):not(:focus) + label:hover::before,
+[type="checkbox"]:not(:checked):not(:focus) + label:hover::before,
 .cf-input[type="radio"]:not(:checked):not(:focus) + label:hover::before,
 .cf-input[type="checkbox"]:not(:checked):not(:focus) + label:hover::before {
-  @apply border-gray-400/100;
+  @apply border-primary-400/100;
 }
 
 /* radio only style */
+[type="radio"] + label::before,
 .cf-input[type="radio"] + label::before {
   border-radius: 50%;
 }
 
 /* checkbox only style */
+[type="checkbox"] + label::before,
 .cf-input[type="checkbox"] + label::before {
   border-radius: var(--checkbox-radius);
 }
 
 /* :checked */
+[type="radio"]:checked + label::before,
+[type="checkbox"]:checked + label::before,
 .cf-input[type="radio"]:checked + label::before,
 .cf-input[type="checkbox"]:checked + label::before {
-  @apply bg-gray-500;
+  @apply bg-primary-500;
   @apply shadow-sm;
-  @apply border-gray-500;
+  @apply border-primary-500;
   transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
   transition:
@@ -115,6 +127,8 @@ Usage: codyhouse.co/license
 }
 
 /* :active */
+[type="radio"]:active + label::before,
+[type="checkbox"]:active + label::before,
 .cf-input[type="radio"]:active + label::before,
 .cf-input[type="checkbox"]:active + label::before {
   -webkit-transform: scale(0.8);
@@ -127,6 +141,8 @@ Usage: codyhouse.co/license
 }
 
 /* :checked:active */
+[type="radio"]:checked:active + label::before,
+[type="checkbox"]:checked:active + label::before,
 .cf-input[type="radio"]:checked:active + label::before,
 .cf-input[type="checkbox"]:checked:active + label::before {
   -webkit-transform: none;
@@ -135,12 +151,14 @@ Usage: codyhouse.co/license
 }
 
 /* radio button icon */
+[type="radio"]:checked + label::before,
 .cf-input[type="radio"]:checked + label::before {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg class='nc-icon-wrapper' fill='%23ffffff'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23ffffff'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
   background-size: var(--radio-marker-size);
 }
 
 /* checkbox button icon */
+[type="checkbox"]:checked + label::before,
 .cf-input[type="checkbox"]:checked + label::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpolyline points='1 6.5 4 9.5 11 2.5' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E");
   background-size: var(--checkbox-marker-size);
@@ -151,37 +169,6 @@ Usage: codyhouse.co/license
 .cf-input[type="checkbox"]:checked:active + label::before,
 .cf-input[type="radio"]:focus + label::before,
 .cf-input[type="checkbox"]:focus + label::before {
-  @apply border-gray-500;
+  @apply border-primary-500;
   box-shadow: 0 0 0 3px hsla(245 58% 51% / 0.2);
-}
-
-/* --radio--bg, --checkbox--bg -> variation with background color */
-.cf-input[type="radio"]--bg + label,
-.cf-input[type="checkbox"]--bg + label {
-  @apply py-0.5 lg:py-1 px-1 lg:px-1.5;
-  padding-left: calc(
-    var(--checkbox-radio-size) + var(--checkbox-radio-gap) + 0.25rem
-  );
-  @apply rounded;
-  transition: background 0.2s;
-}
-@media (min-width: 64rem) {
-  .cf-input[type="radio"]--bg + label,
-  .cf-input[type="checkbox"]--bg + label {
-    padding-left: calc(
-      var(--checkbox-radio-size) + var(--checkbox-radio-gap) + 0.375rem
-    );
-  }
-}
-
-.cf-input[type="radio"]--bg + label:hover,
-.cf-input[type="checkbox"]--bg + label:hover {
-  @apply bg-gray-900/[.07];
-}
-
-.cf-input[type="radio"]--bg:active + label,
-.cf-input[type="checkbox"]--bg:active + label,
-.cf-input[type="radio"]--bg:focus + label,
-.cf-input[type="checkbox"]--bg:focus + label {
-  @apply bg-gray-500/10;
 }
