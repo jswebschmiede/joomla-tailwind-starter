@@ -100,3 +100,12 @@ ul#finder-filter-select-dates li.filter-date select.filter-date-operator {
 .filter-date select {
   @apply mb-2;
 }
+
+/* joomla alert */
+#system-message-container joomla-alert {
+  --jui-alert-padding: 0.75rem 1.25rem !important;
+  @apply relative;
+}
+#system-message-container joomla-alert .joomla-alert--close {
+  @apply absolute top-1/2 right-3 -translate-y-1/2 text-[1.85rem];
+}
