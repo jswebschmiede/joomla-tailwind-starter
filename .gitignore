@@ -755,3 +755,4 @@ pnpm-lock.yaml
 /robots.txt.dist
 /web.config.txt
 /robots.txt
+assets/css/editor.min.css
