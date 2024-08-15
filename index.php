@@ -45,14 +45,14 @@ require(JPATH_THEMES . '/' . $this->template . '/logic.php');
     <?php endif ?>
 
     <main data-element="content">
-        <?php if ($this->countModules('content-1', true)) : ?>
-            <section id="content-1" class="content-1">
-                <jdoc:include type="modules" name="content-1" style="default" />
+        <?php if ($this->countModules('content-top', true)) : ?>
+            <section id="content-top" class="content-top">
+                <jdoc:include type="modules" name="content-top" style="default" />
             </section>
         <?php endif ?>
 
         <?php if (Factory::getApplication()->getMessageQueue()) : ?>
-            <div class="py-4">
+            <div class="py-4 max-w-content mx-auto">
                 <jdoc:include type="message" />
             </div>
         <?php endif; ?>
@@ -62,6 +62,12 @@ require(JPATH_THEMES . '/' . $this->template . '/logic.php');
                 <jdoc:include type="component" />
             </div>
         </div>
+
+        <?php if ($this->countModules('content-1', true)) : ?>
+            <section id="content-1" class="content-1">
+                <jdoc:include type="modules" name="content-1" style="default" />
+            </section>
+        <?php endif ?>
 
         <?php if ($this->countModules('content-2', true)) : ?>
             <section id="content-2" class="content-2">
