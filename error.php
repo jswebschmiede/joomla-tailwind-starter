@@ -9,10 +9,11 @@
  */
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die;
 
-include_once JPATH_THEMES . '/' . $this->template . '/logic.php'; ?>
+include JPATH_THEMES . '/' . $this->template . '/logic.php'; ?>
 
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -32,12 +33,12 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php'; ?>
                     . ($pageclass ? ' ' . $pageclass : '')
                     . ($this->direction == 'rtl' ? ' rtl' : '');
                 ?>">
+
     <?php if ($templateparams["pagePreloader"] == 1) : ?>
-        <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/preloader.php') ?>
+        <?php echo LayoutHelper::render('joomla.ui.preloader'); ?>
     <?php endif; ?>
 
-
-    <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/header.php') ?>
+    <?php include(JPATH_THEMES . '/' . $this->template . '/template-parts/header.php') ?>
 
     <?php if ($this->countModules('header', true)) : ?>
         <jdoc:include type="modules" name="header" style="none" />
@@ -105,10 +106,10 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php'; ?>
         </section>
     </main>
 
-    <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/footer.php') ?>
+    <?php include(JPATH_THEMES . '/' . $this->template . '/template-parts/footer.php') ?>
 
     <?php if ($templateparams["backTop"] == 1) : ?>
-        <?php require(JPATH_THEMES . '/' . $this->template . '/template-parts/backtop.php') ?>
+        <?php echo LayoutHelper::render('joomla.ui.backtop'); ?>
     <?php endif; ?>
 
     <jdoc:include type="modules" name="debug" />
