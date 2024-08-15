@@ -16,7 +16,7 @@ import terser from "@rollup/plugin-terser";
 
 const { src, dest, watch, series, parallel } = pkg;
 const server = browserSync.create();
-const dev_url = "http://localhost:6379/";
+const dev_url = "http://localhost/";
 let cache;
 
 const paths = {
@@ -28,6 +28,9 @@ const paths = {
   js: {
     src: "./assets/js/main.js",
     dest: "./assets/js/",
+  },
+  php: {
+    src: ["./**/*.php", "../../modules/**/*.php"],
   },
 };
 
@@ -64,51 +67,88 @@ const devStyles = () => {
     .pipe(server.stream());
 };
 
+// Editor Styles
+const devEditorStyles = () => {
+  return src("./assets/css/editor.css")
+    .pipe(
+      postcss([
+        postcssImportGlob(),
+        postcssImport(),
+        tailwindcss({ config: "./tailwind.config.js" }),
+        autoprefixer({}),
+      ]),
+    )
+    .pipe(cleanCSS())
+    .pipe(rename("editor.min.css"))
+    .pipe(dest(paths.css.dest))
+    .pipe(server.stream());
+};
+
 // Rollup Scripts
 const devScripts = async () => {
-  const bundle = await rollup({
-    input: "./assets/js/main.js",
-    plugins: [nodeResolve(), commonjs(), babel({ babelHelpers: "bundled" })],
-    cache: cache,
-  });
-  cache = bundle.cache;
+  try {
+    const bundle = await rollup({
+      input: "./assets/js/main.js",
+      plugins: [nodeResolve(), commonjs(), babel({ babelHelpers: "bundled" })],
+      cache: cache,
+    });
+    cache = bundle.cache;
 
-  return await bundle.write({
-    file: "./assets/js/main.bundle.js",
-    format: "iife",
-    name: "mainBundle",
-    sourcemap: true,
-    plugins: [terser()],
-  });
+    return await bundle
+      .write({
+        file: "./assets/js/main.bundle.js",
+        format: "iife",
+        name: "mainBundle",
+        sourcemap: true,
+        plugins: [terser()],
+      })
+      .then(() => {
+        console.log(
+          "\n\t" + logSymbols.success,
+          "Scripts bundled successfully.\n",
+        );
+      });
+  } catch (error) {
+    console.error("Error during bundle:", error);
+  }
 };
 
 // Watch for Changes
 const watchFiles = () => {
   console.log("\n\t" + logSymbols.info, "Watching files.\n");
   watch(
-    [
-      paths.css.watch,
-      paths.js.src,
-      "./tailwind.config.js",
-      "./assets/js/**/*.js",
-      "./**/*.php",
-      "../../modules/**/*.php",
-    ],
+    [paths.css.watch, "./tailwind.config.js"],
     {
       interval: 1000,
       usePolling: true,
-      ignored: [
-        paths.css.dest + "styles.min.css",
-        paths.js.dest + "main.bundle.js",
-      ],
+      ignored: [paths.css.dest + "styles.min.css"],
     },
-    series(parallel(devStyles, devScripts), previewReload),
+    series(parallel(devStyles, devEditorStyles)),
+  );
+
+  watch(
+    [paths.js.src, "./assets/js/**/*.js"],
+    {
+      interval: 1000,
+      usePolling: true,
+      ignored: [paths.js.dest + "main.bundle.js"],
+    },
+    series(devScripts, previewReload),
+  );
+
+  watch(
+    paths.php.src,
+    {
+      interval: 1000,
+      usePolling: true,
+    },
+    series(devStyles, previewReload),
   );
 };
 
 // Dev Task
 export const dev = series(
-  parallel(devStyles, devScripts),
+  parallel(devStyles, devEditorStyles, devScripts),
   livePreview, // Live Preview Build
   watchFiles, // Watch for Live Changes
 );
