@@ -117,7 +117,7 @@ const devScripts = async () => {
 const watchFiles = () => {
   console.log("\n\t" + logSymbols.info, "Watching files.\n");
   watch(
-    [paths.css.watch, "./tailwind.config.js"],
+    [paths.css.watch, "./tailwind.config.js", "./tailwind/**/*.js"],
     {
       interval: 1000,
       usePolling: true,
