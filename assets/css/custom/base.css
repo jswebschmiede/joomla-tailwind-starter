@@ -12,14 +12,16 @@
  * editor.
 */
 
-html {
-  @apply overflow-x-clip scroll-smooth scrollbar-thin scrollbar-track-slate-200 scrollbar-thumb-slate-500 scrollbar-thumb-rounded min-h-full;
-}
+@layer base {
+  html {
+    @apply overflow-x-clip scroll-smooth scrollbar-thin scrollbar-track-slate-200 scrollbar-thumb-slate-500 scrollbar-thumb-rounded min-h-full;
+  }
 
-body {
-  @apply bg-white min-h-full font-sans text-black text-base xl:text-lg antialiased break-words;
-}
+  body {
+    @apply bg-white min-h-full font-sans text-black text-base xl:text-lg antialiased break-words;
+  }
 
-a {
-  @apply transition-colors duration-300 ease-in-out;
+  a {
+    @apply transition-colors duration-300 ease-in-out;
+  }
 }
