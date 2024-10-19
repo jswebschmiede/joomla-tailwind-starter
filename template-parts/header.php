@@ -9,6 +9,10 @@
  */
 
 defined('_JEXEC') or die;
+
+/**
+ * @var Joomla\CMS\Document\HtmlDocument $this
+ */
 ?>
 
 

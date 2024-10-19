@@ -13,6 +13,10 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 defined('_JEXEC') or die;
 
+/**
+ * @var Joomla\CMS\Document\HtmlDocument $this
+ */
+
 include JPATH_THEMES . '/' . $this->template . '/logic.php'; ?>
 
 <!DOCTYPE html>

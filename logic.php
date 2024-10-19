@@ -11,13 +11,13 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\HTML\HTMLHelper;
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
-// variables
 /** @var Joomla\CMS\Factory $app */
+
 $app = Factory::getApplication();
 $wa = $this->getWebAssetManager();
 
